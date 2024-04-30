@@ -1,0 +1,122 @@
+[
+  {
+    "model": "products.products",
+    "pk": 1,
+    "fields": {
+      "updated_at": "2024-04-30T20:59:17.640Z",
+      "created_at": "2024-04-30T20:59:16.353Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sdk": "255b0f24-ac67-4281-9ae3-2129b6627ad0",
+      "name": "Camisa Verde",
+      "category": 5,
+      "category_name": "Camisas",
+      "brand": "blank",
+      "image": "",
+      "price": "0.00",
+      "qty": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 2,
+    "fields": {
+      "updated_at": "2024-04-30T20:59:32.138Z",
+      "created_at": "2024-04-30T20:59:32.138Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sdk": "806d2a6c-1039-4bc6-b92c-c61ce764c1a1",
+      "name": "Camisa Azul",
+      "category": 5,
+      "category_name": "camisas",
+      "brand": "blank",
+      "image": "",
+      "price": "0.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 3,
+    "fields": {
+      "updated_at": "2024-04-30T20:59:58.552Z",
+      "created_at": "2024-04-30T20:59:58.552Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sdk": "6eb20b21-e449-4d36-a463-22093c4cf807",
+      "name": "Pantalon Gris",
+      "category": 2,
+      "category_name": "Pantalones",
+      "brand": "drey",
+      "image": "",
+      "price": "0.10",
+      "qty": 3,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 4,
+    "fields": {
+      "updated_at": "2024-04-30T21:00:30.446Z",
+      "created_at": "2024-04-30T21:00:30.446Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sdk": "2426b1b4-5456-4011-badd-c3b2434f0536",
+      "name": "Short Amarrillo",
+      "category": 3,
+      "category_name": "Shorts",
+      "brand": "Sawer",
+      "image": "",
+      "price": "4.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 5,
+    "fields": {
+      "updated_at": "2024-04-30T21:00:49.753Z",
+      "created_at": "2024-04-30T21:00:49.753Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sdk": "c01d1c2b-91ef-4f82-807f-7106c649dda1",
+      "name": "Converses",
+      "category": 4,
+      "category_name": "Tenis",
+      "brand": "kilou",
+      "image": "",
+      "price": "19.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 6,
+    "fields": {
+      "updated_at": "2024-04-30T21:01:15.089Z",
+      "created_at": "2024-04-30T21:01:15.089Z",
+      "deleted_at": null,
+      "is_active": false,
+      "is_deleted": false,
+      "sdk": "3916d137-028f-46d1-992c-77d81c5f6397",
+      "name": "Didas",
+      "category": 4,
+      "category_name": "Tenis",
+      "brand": "Didas",
+      "image": "",
+      "price": "12.00",
+      "qty": null,
+      "description": null
+    }
+  }
+]
