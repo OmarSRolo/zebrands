@@ -7,8 +7,7 @@ from core.misc.utils import validate_char_field
 
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, local="", password=None, first_name="", last_name="", town="", address="", phone="",
-                    city=""):
+    def create_user(self, email, password=None, first_name="", last_name="", town="", address="", phone="", city=""):
         """
         Creates and saves a User with the given email and password.
         """
@@ -20,18 +19,17 @@ class MyUserManager(BaseUserManager):
         user.last_name = last_name
         user.town = town
         user.city = city
-        user.local_id = local
         user.phone = phone
         user.address = address
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, local="", password=None):
+    def create_superuser(self, email, password=None):
         """
         Creates and saves a superuser with the given email and password.
         """
-        user = self.create_user(email, password=password, local=local)
+        user = self.create_user(email, password=password)
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
