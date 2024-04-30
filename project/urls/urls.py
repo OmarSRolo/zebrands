@@ -24,7 +24,7 @@ from project.urls.schema import schema_view_v1
 urlpatterns = [
     path('api/v1/docs/', schema_view_v1.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/v1/', include('project.urls.v1', namespace='v1')),
-    path('admin/', admin.site.urls),
+    path('api/admin/', admin.site.urls),
 ]
 
 # Admin site

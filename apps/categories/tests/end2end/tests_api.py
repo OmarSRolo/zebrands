@@ -12,7 +12,7 @@ from core.tests.IntegrationTest import IntegrationTest
 
 class CategoriesAPITest(IntegrationTest):
     url = "/api/v1/categories/"
-    fixtures = ['test/users.json', 'categories_categories.json']
+    fixtures = ['test/users.json', 'products_categories.json']
 
     def setUp(self):
         super(CategoriesAPITest, self).setUp()

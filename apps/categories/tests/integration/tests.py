@@ -7,7 +7,7 @@ from apps.categories.services.CategoriesServices import CategoriesService
 
 
 class CategoriesTest(IntegrationTest):
-    fixtures = ['test/users.json', 'categories_categories.json']
+    fixtures = ['test/users.json', 'products_categories.json']
 
     def setUp(self):
         super(CategoriesTest, self).setUp()
