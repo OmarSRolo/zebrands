@@ -14,7 +14,6 @@ class SecurityTest(IntegrationTest):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json_response["email"], self.user_client.email)
 
-    # Intenta logear con un usuario que no existe
     def test_user_wrong_login(self):
         password_ = {'email': "user@mail.com", "password": "345"}
         response = self.client.post("/api/v1/auth/login/", json.dumps(password_), content_type="application/json")

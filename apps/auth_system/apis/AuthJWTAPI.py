@@ -8,8 +8,8 @@ from rest_framework.decorators import permission_classes, api_view
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
+from apps.auth_system.dto.AuthApiKeyDTO import LoginApiKeyResponseSerializer
 from apps.auth_system.dto.AuthDTO import AuthTokenSerializer
-from apps.auth_system.dto.AuthJWTDTO import LoginJWTResponseSerializer
 from apps.auth_system.dto.swagger import LoginApiDTOSwagger, EmailDTOSwagger
 from apps.auth_system.services.AuthJWTService import AuthJWTService
 from core.base.DTO import ResponseShortDTO
@@ -18,7 +18,6 @@ from core.misc.utils import json_result
 
 class AuthJWTAPI(viewsets.ViewSet):
     permission_classes: list[type[AllowAny]] = [AllowAny]
-    auth_type: None = None
 
     @swagger_auto_schema(request_body=AuthTokenSerializer, responses={"200": ResponseShortDTO()})
     def register(self, request, **kwargs):
@@ -28,7 +27,7 @@ class AuthJWTAPI(viewsets.ViewSet):
         repo.register(**data)
         return json_result(data=True, message="Usuario Registrado")
 
-    @swagger_auto_schema(request_body=LoginApiDTOSwagger, responses={"200": LoginJWTResponseSerializer()})
+    @swagger_auto_schema(request_body=LoginApiDTOSwagger, responses={"200": LoginApiKeyResponseSerializer()})
     def login(self, request, *args, **kwargs):
         repo: AuthJWTService = AuthJWTService()
         login = repo.login(request)
