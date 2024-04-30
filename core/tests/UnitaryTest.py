@@ -1,5 +1,5 @@
-from core.tests.BaseTest import BaseTest
+from rest_framework.test import APITestCase
 
 
-class UnitaryTest(BaseTest):
+class UnitaryTest(APITestCase):
     ...

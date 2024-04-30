@@ -1,6 +1,5 @@
-from core.tests.BaseTest import BaseTest
-from core.tests.UtilsFixtures import UtilFixture
+from core.tests.UtilsFixtures import BaseTest
 
 
-class IntegrationTest(UtilFixture, BaseTest):
+class IntegrationTest(BaseTest):
     ...

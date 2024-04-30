@@ -2,12 +2,11 @@ import base64
 import json
 import random
 
-from core.tests.BaseTest import BaseTest
-from core.tests.UtilsFixtures import UtilFixture
+from core.tests.UtilsFixtures import BaseTest
 from core.tests import Benchmark
 
 
-class End2EndTest(UtilFixture, BaseTest):
+class End2EndTest(BaseTest):
 
     def assert_elapsed_time(self, bench_mark: Benchmark, time_limit: int = 3000):
         self.assertLessEqual(bench_mark.elapsed, time_limit, f"Elapsed time grater than {time_limit} ms")
