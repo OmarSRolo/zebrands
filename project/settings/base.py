@@ -17,11 +17,11 @@ THIRD_PARTY_APPS: list[str] = [
     'storages',
 ]
 
-GLOBALS_APPS: list[str] = [
-
-]
-
 LOCAL_APPS: list[str] = [
+    "apps.auth_system",
+    "apps.products",
+    "apps.users",
+    "apps.categories",
 ]
 
 DJANGO_APP: list[str] = [
@@ -34,7 +34,7 @@ DJANGO_APP: list[str] = [
     'django.contrib.admindocs'
 ]
 
-INSTALLED_APPS: list[str] = DJANGO_APP + LOCAL_APPS + GLOBALS_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS: list[str] = DJANGO_APP + LOCAL_APPS + THIRD_PARTY_APPS
 
 ROOT_URLCONF: str = 'project.urls.urls'
 
@@ -56,7 +56,7 @@ TEMPLATES: list[dict[str, Any]] = [
 
 WSGI_APPLICATION: str = 'project.wsgi.application'
 
-# AUTH_USER_MODEL: str = "auth_system.Users"
+AUTH_USER_MODEL: str = "auth_system.Users"
 
 PASSWORD_HASHERS: list[str] = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",

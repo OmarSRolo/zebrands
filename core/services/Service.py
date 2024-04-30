@@ -19,7 +19,7 @@ class IService(ABC):
         ...
 
 
-class ServiceV2(IService, IWebhookTemplate, ABC):
+class Service(IService, IWebhookTemplate, ABC):
     """
     Base Class for all services.
 
@@ -35,7 +35,7 @@ class ServiceV2(IService, IWebhookTemplate, ABC):
     active_field: str = "is_active"
     deleted_field: str = "is_deleted"
 
-    def serializer(self, serializer: Serializer, **context) -> ServiceV2:
+    def serializer(self, serializer: Serializer, **context) -> Service:
         """
         Set the serializer to format the data
         if you don't set it, it returns the ORM's objects

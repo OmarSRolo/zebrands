@@ -3,27 +3,18 @@ from django.contrib.auth.models import Group
 from django.http import HttpRequest
 from rest_framework_simplejwt.tokens import AccessToken
 
-from globals.auth_system.models import Locales, Users
-from standard.settings.services.SettingsManager import SettingsManager
-from standard.tpv.models import Tpv
+from apps.auth_system.models import Users
 
 User = get_user_model()
 
-STANDARD_FIXTURES = ['test/foodeo.json', 'test/tenant.json']
-
 
 class UtilFixture:
-    fixtures = STANDARD_FIXTURES
 
     def setUp(self):
         self.request = HttpRequest()
         self.request.META = {"SERVER_NAME": "example.com", "SERVER_PORT": 8000}
 
-        self.load_settings()
-
-        self.local = Locales.objects.get(database="bar")
-        self.user = Users.objects.filter(is_staff=False, local=self.local).first()
-        self.tpv = Tpv.objects.filter(is_deleted=False, is_active=True).first()
+        self.user = Users.objects.filter(is_staff=False).first()
 
         self.create_super_user()
         self.create_user_administrator()
@@ -42,35 +33,23 @@ class UtilFixture:
         self.create_site_and_administrator_token_headers()
         self.create_site_and_super_token_headers()
 
-    def load_settings(self):
-        self.global_settings = SettingsManager.get_global_settings()
-        self.ticket_settings = SettingsManager.get_ticket_settings()
-        self.kitchen_ticket_settings = SettingsManager.get_ticket_kitchen_settings()
-        self.app_settings = SettingsManager.get_app_settings()
-        self.ticket_style_settings = SettingsManager.get_ticket_style_settings()
-
     def get_group(self, name="Administrador"):
         self.group = Group.objects.get(name=name)
 
     def create_site_and_super_token_headers(self):
-        self.site_and_super_token_headers = {'HTTP_AUTHORIZATION': self.super_token, "HTTP_Site": self.local.subdomain,
-                                             "HTTP_TPV": str(self.tpv.key)}
+        self.super_token_headers = {'HTTP_AUTHORIZATION': self.super_token}
 
     def create_site_and_user_token_headers(self):
-        self.site_and_user_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_user),
-                                            "HTTP_Site": self.local.subdomain, "HTTP_TPV": str(self.tpv.key)}
+        self.user_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_user)}
 
     def create_site_and_client_token_headers(self):
-        self.site_and_client_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_client),
-                                              "HTTP_Site": self.local.subdomain, "HTTP_TPV": str(self.tpv.key)}
+        self.client_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_client)}
 
     def create_site_and_administrator_token_headers(self):
-        self.site_and_administrator_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_administrator),
-                                                     "HTTP_Site": self.local.subdomain, "HTTP_TPV": str(self.tpv.key)}
+        self.administrator_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_administrator)}
 
     def create_site_and_dependiente_token_headers(self):
-        self.site_and_dependiente_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_dependiente),
-                                                   "HTTP_Site": self.local.subdomain, "HTTP_TPV": str(self.tpv.key)}
+        self.dependiente_token_headers = {'HTTP_AUTHORIZATION': '{}'.format(self.token_dependiente)}
 
     def create_token_user(self):
         token = AccessToken.for_user(self.user)

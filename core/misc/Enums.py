@@ -12,3 +12,7 @@ class REQUESTS_STATUS(models.TextChoices):
     CANCELADO = 'cancelado', _('cancelado')
     INVALIDADO = 'invalidado', _('invalidado')
     TERMINADO = 'terminado', _('terminado')
+
+
+LIST_INTERNALS_MODULES: list[str] = ['session', 'contenttypes', 'sessions', 'admin', 'auth', 'django_celery_results',
+                                     'django_celery_beat']
