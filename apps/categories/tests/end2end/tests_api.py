@@ -76,8 +76,8 @@ class CategoriesAPITest(IntegrationTest):
             category_saved.refresh_from_db()
 
     def test_api_delete_all(self):
-        all = Categories.objects.filter(is_deleted=False, is_active=True)
-        ids = [x.id for x in all]
+        all_categories = Categories.objects.filter(is_deleted=False, is_active=True)
+        ids = [x.id for x in all_categories]
         loads = {"id__in": ids}
         data_to_send = json.dumps(loads)
         response = self.client.post("/api/v1/categories/delete_all/", data_to_send, content_type="application/json",
@@ -96,9 +96,9 @@ class CategoriesAPITest(IntegrationTest):
         repo = self.service.serializer(self.serializer)
         ids = [x.id for x in Categories.objects.filter(is_active=False)]
         repo.restore_all(**{"id__in": ids})
-        all = Categories.objects.all()
+        all_categories = Categories.objects.all()
         f = True
-        for tab in all:
+        for tab in all_categories:
             if not tab.is_active:
                 f = False
         self.assertEqual(f, True)

@@ -7,7 +7,7 @@ from rest_framework.parsers import MultiPartParser
 from rest_framework.permissions import AllowAny, IsAuthenticated, BasePermission
 
 from apps.categories.dto.CategoriesDTO import CategoriesDTO
-from apps.categories.dto.swagger import ResponseCategoriesDTO, CategoriesFormDTO
+from apps.categories.dto.swagger import ResponseCategoriesDTO, CategoriesFormDTO, ResponseCategoriesListDTO
 from apps.categories.services.CategoriesInsertServices import CategoriesInsertService
 from apps.categories.services.CategoriesServices import CategoriesService
 from core.base.DTO import PaginateDTO, ResponseShortDTO
@@ -41,7 +41,7 @@ class List(viewsets.ViewSet):
         info = repo.delete_by(id=pk, soft=False)
         return json_result(data=info, message="Categoria Eliminada")
 
-    @swagger_auto_schema(query_serializer=PaginateDTO(), responses={"200": CategoriesDTO(many=True)})
+    @swagger_auto_schema(query_serializer=PaginateDTO(), responses={"200": ResponseCategoriesListDTO()})
     @base64_filters
     def list(self, request):
         data: dict[str, Any] = request.data_base64

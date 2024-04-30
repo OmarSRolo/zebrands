@@ -44,7 +44,7 @@ class AuthJWTAPI(viewsets.ViewSet):
     def get_permission(self, request, **kwargs):
         data: dict[str, Any] = request.data
         repo: AuthJWTService = AuthJWTService()
-        data: dict[str, bool] = repo.get_permission_by_module(request.user, data.get("module", {}))
+        data: dict[str, bool] = repo.get_permission_by_module(request.user, data.get("module", ""))
         return json_result(message="Permisos", data=data)
 
     @swagger_auto_schema(request_body=EmailDTOSwagger, responses={"200": ResponseShortDTO()})

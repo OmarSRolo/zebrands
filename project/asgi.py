@@ -1,5 +1,5 @@
 """
-ASGI config for project project.
+ASGI config for zebrands projects.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

@@ -79,7 +79,7 @@ class Service(IService, IWebhookTemplate, ABC):
 
         # Order all elements
         all_elements = all_elements.order_by("pk")
-        if (kwargs.get("sort") and kwargs.get("order") and not isinstance(kwargs.get("sort"), list)):
+        if kwargs.get("sort") and kwargs.get("order") and not isinstance(kwargs.get("sort"), list):
             # Ordena los elementos
             sort = kwargs.pop("sort")
             order = kwargs.pop("order")

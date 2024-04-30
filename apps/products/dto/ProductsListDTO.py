@@ -18,7 +18,7 @@ class ResponseProductsDTO(ResponseDTO):
 
 
 class PProductsDTO(serializers.Serializer):
-    results = ProductsDTO()
+    results = ProductsDTO(many=True)
     total = serializers.IntegerField()
 
 

@@ -85,9 +85,9 @@ class ProductsTest(IntegrationTest):
         repo = self.service.serializer(self.serializer, **{"request": self.request})
         ids: list[int] = [x.id for x in Products.objects.all()]
         repo.delete_all(**{"id__in": ids})
-        all: QuerySet[Products] = Products.objects.all()
+        all_products: QuerySet[Products] = Products.objects.all()
         f: bool = True
-        for tab in all:
+        for tab in all_products:
             if tab.is_active:
                 f: bool = False
         self.assertEqual(f, True)
@@ -105,9 +105,9 @@ class ProductsTest(IntegrationTest):
         repo = self.service.serializer(self.serializer, **{"request": self.request})
         ids: list[int] = [x.id for x in Products.objects.filter(is_active=False)]
         repo.restore_all(**{"id__in": ids})
-        all: QuerySet[Products] = Products.objects.all()
+        all_products: QuerySet[Products] = Products.objects.all()
         f: bool = True
-        for tab in all:
+        for tab in all_products:
             if not tab.is_active:
                 f: bool = False
         self.assertEqual(f, True)

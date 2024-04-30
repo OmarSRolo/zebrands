@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from typing import Any
+from uuid import uuid4
 
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser
 from rest_framework.permissions import AllowAny, IsAuthenticated, BasePermission
+from rest_framework.response import Response
 
 from apps.products.dto.ProductsListDTO import ProductsDTO, ResponseProductsDTO, ResponseProductsListDTO
 from apps.products.dto.swagger import ProductsFormDTO
@@ -31,7 +33,16 @@ class List(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         repo: ProductsService = ProductsService().serializer(ProductsDTO, **{"request": request})
         query = repo.find_by(id=pk)
-        return json_result(data=query, message="Producto obtenido")
+        if not query:
+            return json_result(data=query, message="Producto obtenido")
+
+        response = Response({"complete": True, "message": "Producto obtenido", "data": query}, status=200)
+        cookie_in_requests = request.COOKIES.get('user_uuid')
+        if not cookie_in_requests:
+            cookie_in_requests = str(uuid4())
+            response.set_cookie('user_uuid', cookie_in_requests)
+        repo.track_products(pk, cookie_in_requests)
+        return response
 
     @swagger_auto_schema(request_body=Pk, responses={"200": ResponseShortDTO()})
     @user_permission("products.delete_products")

@@ -7,7 +7,8 @@ from core.base.models import Time
 class Track(Time):
     product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='traces')
     user = models.UUIDField()
-    metadata = models.JSONField(default={})
+    total_views = models.IntegerField(default=1)
+    metadata = models.JSONField(default=dict)
 
     class Meta:
         verbose_name: str = "Track Producto"

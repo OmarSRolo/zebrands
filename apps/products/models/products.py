@@ -24,7 +24,6 @@ def upload_file_path(instance, filename):
     return 'products/{final_filename}'.format(final_filename=final_filename)
 
 
-
 class Products(Time):
     sdk = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100, verbose_name="Nombre", validators=[validate_char_field])

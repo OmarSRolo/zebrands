@@ -79,9 +79,9 @@ class UsersTest(IntegrationTest):
         repo = self.repo.serializer(self.serializer)
         ids = [x.id for x in Users.objects.filter(is_active=True, is_deleted=False)]
         repo.delete_all(**{"id__in": ids})
-        all = Users.objects.filter(is_active=True, is_deleted=False)
+        all_users = Users.objects.filter(is_active=True, is_deleted=False)
         f = True
-        for tab in all:
+        for tab in all_users:
             if tab.is_active:
                 f = False
         self.assertEqual(f, True)
@@ -97,9 +97,9 @@ class UsersTest(IntegrationTest):
     def test_restore_all(self):
         ids = [x.id for x in Users.objects.filter(is_active=False, is_deleted=False)]
         self.repo.restore_all(**{"id__in": ids})
-        all = Users.objects.filter(is_active=True, is_deleted=False)
+        all_users = Users.objects.filter(is_active=True, is_deleted=False)
         f = True
-        for tab in all:
+        for tab in all_users:
             if not tab.is_active:
                 f = False
         self.assertEqual(f, True)
