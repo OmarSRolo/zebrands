@@ -15,7 +15,6 @@ urlpatterns: list[Any] = [
     path('delete_all/', List.as_view({'post': 'delete_all'}), name='UsersDelete'),
     path('restore/', List.as_view({'post': 'restore'}), name='UsersRestore'),
     path('restore_all/', List.as_view({'post': 'restore_all'}), name='UsersRestoreAll'),
-    path('change_password/', List.as_view({'post': 'change_password'}), name='UsersChangePassword'),
-    path('<pk>/', List.as_view(actions=actions_pk), {"no_header": True}, name='UsersPK'),
+    path('<pk>/', List.as_view(actions=actions_pk), name='UsersPK'),
 
 ]

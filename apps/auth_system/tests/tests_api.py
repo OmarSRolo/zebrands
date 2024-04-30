@@ -23,17 +23,16 @@ class SecurityTest(IntegrationTest):
         password_ = {'email': "login.sr@gmail.com", "password": "123"}
         response = self.client.post("/api/v1/auth/register/", json.dumps(password_), content_type="application/json")
         response_json = response.data
-        print(response_json)
         self.assertEqual(response.status_code, 200)
         user = Users.objects.get(email=password_["email"])
         self.assertEqual(user.email, password_['email'])
         self.assertEqual(response_json['data'], True)
 
     def test_get_route_without_token(self):
-        response = self.client.post("/api/v1/products/")
+        response = self.client.post("/api/v1/users/")
         self.assertEqual(response.status_code, 401)
 
     def test_get_route_wrong_token(self):
         header = {'HTTP_AUTHORIZATION': 'Token dbjfsdbfj84394thsdk'}
-        response = self.client.post("/api/v1/products/", **header, content_type="application/json")
+        response = self.client.post("/api/v1/users/", **header, content_type="application/json")
         self.assertEqual(response.status_code, 401)

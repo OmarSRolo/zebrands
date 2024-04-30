@@ -1,0 +1,104 @@
+[
+  {
+    "model": "auth_system.users",
+    "pk": 1,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$RVhvYnFvbEFVd1RVdlJCaFB4TnpTRA$9v/7DxjGfPr4K97OKjleTWV09wtTdLJ9gwX728qDr6w",
+      "last_login": "2024-04-30T04:21:32.100Z",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-04-30T04:11:27.948Z",
+      "username": null,
+      "email": "chicomtz.sr@gmail.com",
+      "role": null,
+      "phone": "",
+      "address": "",
+      "city": "",
+      "town": "",
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": "",
+      "first_name": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 2,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$aGJVWmw3QUdTaWFKQmIxTTRadDUzSA$jvXt8rt7XKJ8zF4+4I41HYx5h9k/1oSUmiaIAkArmZo",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-30T04:21:54Z",
+      "username": "cliente",
+      "email": "omarsarmientorolo@yahoo.es",
+      "role": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "town": null,
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 3,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$aWRRclBjQkF4WGNadURObjFFbHVOWg$+5TRCTWIQFmNkbGtfJZ5HroxOp/851ohSzMp9RVLs7o",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-30T05:20:41.170Z",
+      "username": "client_2",
+      "email": "aaaa@gmail.com",
+      "role": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "town": null,
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 5,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$anRxNWZleHR0OElCMzJqU3lNOXVLQQ$ZU3kbfC62vXaGxRQNbn1ycrt2i5vzbwrR/MIP24cZag",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": false,
+      "date_joined": "2024-04-30T05:22:24.276Z",
+      "username": "client_3",
+      "email": "bbbb@gmail.com",
+      "role": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "town": null,
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
