@@ -14,4 +14,5 @@ FIXTURE_DIRS: list[str] = [
     os.path.join(BASE_DIR, 'apps/products/tests/fixtures/'),
     os.path.join(BASE_DIR, 'apps/auth_system/tests/fixtures/'),
     os.path.join(BASE_DIR, 'apps/users/tests/fixtures/'),
+    os.path.join(BASE_DIR, 'apps/categories/tests/fixtures/'),
 ]

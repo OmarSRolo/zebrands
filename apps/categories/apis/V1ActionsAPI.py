@@ -18,7 +18,7 @@ class V1ActionsAPI(viewsets.ViewSet):
         data = json.loads(request.body)
         repo: CategoriesService = CategoriesService().serializer(CategoriesDTO)
         info = repo.delete_all(**data, soft=False)
-        return json_result(data=info, message="Categorias Eliminadas")
+        return json_result(data=info, message="Categorías Eliminadas")
 
     @swagger_auto_schema(request_body=Pk, responses={"200": ResponseShortDTO()})
     @user_permission("categories.delete_categories")
@@ -26,7 +26,7 @@ class V1ActionsAPI(viewsets.ViewSet):
         data: dict[str, Any] = request.data
         repo: CategoriesService = CategoriesService().serializer(CategoriesDTO)
         info = repo.restore_by(**data)
-        return json_result(data=info, message="Categoria Restaurada")
+        return json_result(data=info, message="Categoría Restaurada")
 
     @swagger_auto_schema(request_body=pk__in, responses={"200": ResponseShortDTO()})
     @user_permission("categories.delete_categories")
@@ -34,4 +34,4 @@ class V1ActionsAPI(viewsets.ViewSet):
         data: dict[str, Any] = request.data
         repo: CategoriesService = CategoriesService().serializer(CategoriesDTO)
         info = repo.restore_all(**data)
-        return json_result(data=info, message="Categorias Restauradas")
+        return json_result(data=info, message="Categorías Restauradas")

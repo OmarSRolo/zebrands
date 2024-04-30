@@ -6,16 +6,40 @@ from parameterized import parameterized
 from apps.categories.dto.CategoriesDTO import CategoriesDTO
 from apps.categories.models.categories import Categories
 from apps.categories.services.CategoriesServices import CategoriesService
+from apps.infrastructure.tests.factories import CategoriesFactory
 from core.tests.IntegrationTest import IntegrationTest
 
 
 class CategoriesAPITest(IntegrationTest):
     url = "/api/v1/categories/"
+    fixtures = ['test/users.json', 'categories_categories.json']
 
     def setUp(self):
         super(CategoriesAPITest, self).setUp()
         self.service = CategoriesService()
         self.serializer = CategoriesDTO
+
+    @parameterized.expand([
+        (CategoriesFactory,),
+    ])
+    def test_insert(self, factory):
+        category = factory.build()
+        category['image'] = self.create_image()
+        category['is_active'] = "true"
+        response = self.client.post(self.url, category, **self.super_token_headers)
+        self.assertEqual(response.status_code, 200)
+        json_res = response.data
+        category_returned = json_res["data"]
+        category_saved: Categories = Categories.objects.filter(is_active=True, is_deleted=False).last()
+        self.assertEqual(category['name'], category_returned['name'])
+        self.assertIsNotNone(category_saved.image)
+        self.assertEqual(category['name'], category_saved.name)
+
+    def test_client_cannt_insert(self):
+        category = CategoriesFactory.build()
+        category['image'] = self.create_image()
+        response = self.client.post(self.url, category, **self.client_token_headers)
+        self.assertEqual(response.status_code, 403)
 
     def test_list(self):
         data = base64.b64encode(
@@ -29,8 +53,8 @@ class CategoriesAPITest(IntegrationTest):
         self.assertEqual(response.status_code, 200)
 
     @parameterized.expand([
-        ("juan", ),
-        ("pedro", )
+        ("juan",),
+        ("pedro",)
     ])
     def test_update(self, name: str):
         category = Categories.objects.filter(is_active=True, is_deleted=False).last()

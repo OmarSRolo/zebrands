@@ -1,0 +1,58 @@
+[
+  {
+    "model": "categories.categories",
+    "pk": 1,
+    "fields": {
+      "updated_at": "2024-04-30T17:40:09.911Z",
+      "created_at": "2024-04-30T17:40:09.911Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "name": "No Assigned",
+      "image": "",
+      "not_assigned": true
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 2,
+    "fields": {
+      "updated_at": "2024-04-30T17:58:28.883Z",
+      "created_at": "2024-04-30T17:58:15.197Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "name": "Pantalones",
+      "image": "categories/1539952202.jpg",
+      "not_assigned": false
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 3,
+    "fields": {
+      "updated_at": "2024-04-30T17:58:47.295Z",
+      "created_at": "2024-04-30T17:58:47.295Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "name": "Shorts",
+      "image": "categories/1462721362.jpg",
+      "not_assigned": false
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 4,
+    "fields": {
+      "updated_at": "2024-04-30T17:58:59.033Z",
+      "created_at": "2024-04-30T17:58:59.033Z",
+      "deleted_at": null,
+      "is_active": false,
+      "is_deleted": false,
+      "name": "Tenis",
+      "image": "categories/2180511525.jpg",
+      "not_assigned": false
+    }
+  }
+]

@@ -21,7 +21,7 @@ def upload_file_path(instance, filename):
     new_filename: int = random.randint(1, 3910209312)
     name, ext = get_filename_ext(filename)
     final_filename: str = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
-    return '/products/{final_filename}'.format(final_filename=final_filename)
+    return 'products/{final_filename}'.format(final_filename=final_filename)
 
 
 class Products(Time):

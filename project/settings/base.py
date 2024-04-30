@@ -19,9 +19,9 @@ THIRD_PARTY_APPS: list[str] = [
 
 LOCAL_APPS: list[str] = [
     "apps.auth_system",
-    # "apps.products",
+    "apps.products",
     "apps.users",
-    # "apps.categories",
+    "apps.categories",
 ]
 
 DJANGO_APP: list[str] = [

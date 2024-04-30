@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import Any
 
-from django.utils.translation import gettext as _
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser
@@ -56,7 +55,7 @@ class List(viewsets.ViewSet):
             data["filters"].pop("not_assigned")
         repo.find_all(**data, show_actives=soft)
         info = repo.paginate(limit=data.get("limit", 100), offset=data.get("offset", 0))
-        return json_result(message=_("All categories"), data={"results": info[0], "total": info[1]})
+        return json_result(message="Todas las categorías", data={"results": info[0], "total": info[1]})
 
     @swagger_auto_schema(manual_parameters=CategoriesFormDTO, responses={"200": ResponseCategoriesDTO()})
     @user_permission("categories.add_categories")
@@ -82,4 +81,4 @@ class List(viewsets.ViewSet):
         info["id"] = pk
         repo: CategoriesInsertService = CategoriesInsertService().serializer(CategoriesDTO, **{"request": request})
         result = repo.update_by(**info, partial=True)
-        return json_result(data=result, message="Categoria editada")
+        return json_result(data=result, message="Categoría editada")
