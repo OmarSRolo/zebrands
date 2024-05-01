@@ -18,9 +18,6 @@ from core.misc.utils import json_result
 
 class AuthJWTAPI(viewsets.ViewSet):
     def get_permissions(self):
-        """
-        Instantiates and returns the list of permissions that this view requires.
-        """
         if self.action == 'get_permission':
             permission_classes: list[type[BasePermission]] = [IsAuthenticated]
         else:

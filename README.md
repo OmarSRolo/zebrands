@@ -62,31 +62,31 @@ python manage.py loaddata fixtures/load/data.json --settings=project.settings.lo
 python manage.py test --settings=project.settings.test
 ```
 
-### 9- Correr el proyecto
+### 9- Correr el proyecto:
 
 ```bash
 python manage.py runserver --settings=project.settings.local
 ```
 
-### 10- Generar reporte de Coverage
+### 10- Generar reporte de Coverage:
 
 ```bash
 coverage run --source='.' manage.py test --settings=project.settings.test
 ```
 
-#### 11- Generar reporte
+#### 11- Generar reporte:
 
 ```bash
 coverage html
 ```
 
-### 12- Correr Celery Worker para tareas asincrónicas
+### 12- Correr Celery Worker para tareas asincrónicas:
 
 ```bash
 celery -A project worker -l debug
 ```
 
-### 13- Correr flower para monitorizar las tareas
+### 13- Correr flower para monitorizar las tareas:
 
 ```bash
 celery -A project flower --conf=project/settings/flower.py
@@ -130,6 +130,11 @@ escalado.
 3. **apps**: Contiene todas las apps del sistema.
 4. **core**: Contiene los archivos bases de los servicios genéricos sin lógica de negocio
 5. **infrastructure**: Contiene los servicios, factorías y entidades del dominio.
+
+### Seguridad:
+
+Se implementó sistema de roles y permisos a los usuarios basado en el protocolo JWT. Cada endpoint excepto los públicos
+se protegieron por permisos específicos. 
 
 ## Patrones:
 

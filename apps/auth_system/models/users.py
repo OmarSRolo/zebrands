@@ -8,9 +8,6 @@ from core.misc.utils import validate_char_field
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None, first_name="", last_name="", town="", address="", phone="", city=""):
-        """
-        Creates and saves a User with the given email and password.
-        """
         if not email:
             raise ValueError(_('Users must have an email address'))
 

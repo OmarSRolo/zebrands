@@ -20,9 +20,6 @@ class List(viewsets.ViewSet):
     parser_classes: list[type[MultiPartParser]] = [MultiPartParser]
 
     def get_permissions(self):
-        """
-        Instantiates and returns the list of permissions that this view requires.
-        """
         if self.action == 'list' or self.action == 'retrieve':
             permission_classes: list[type[BasePermission]] = [AllowAny, ]
         else:
