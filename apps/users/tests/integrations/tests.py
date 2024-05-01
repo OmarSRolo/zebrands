@@ -2,11 +2,11 @@ from django.contrib.auth.models import Group
 from parameterized import parameterized
 from rest_framework import serializers
 
-from core.tests.IntegrationTest import IntegrationTest
 from apps.auth_system.models import Users
 from apps.infrastructure.tests.factories import UsersFactory
 from apps.users.dto.UsersDTO import UsersDTO, ReadUsersDTO
 from apps.users.services.UsersService import UsersService
+from core.tests.IntegrationTest import IntegrationTest
 
 
 class UsersTest(IntegrationTest):

@@ -248,7 +248,9 @@
       "name": "Clients",
       "permissions": [
         22,
-        24
+        24,
+        28,
+        32
       ]
     }
   },

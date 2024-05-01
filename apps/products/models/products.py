@@ -25,7 +25,7 @@ def upload_file_path(instance, filename):
 
 
 class Products(Time):
-    sdk = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
+    sku = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100, verbose_name="Nombre", validators=[validate_char_field])
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, verbose_name="Categoría")
     category_name = models.CharField(max_length=100, verbose_name="Nombre de Categoría")

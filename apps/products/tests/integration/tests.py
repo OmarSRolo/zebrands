@@ -16,7 +16,6 @@ class ProductsTest(IntegrationTest):
 
     def setUp(self):
         super(ProductsTest, self).setUp()
-        # Creo 5 categorias nuevas en BD
         self.categories = CategoriesFactoryModel.create_batch(5)
         self.service = ProductsService()
         self.serializer = ProductsDTO
@@ -25,12 +24,9 @@ class ProductsTest(IntegrationTest):
         ("tomate", "2.50", "description"),
         ("mayonesa", "3.90", "description_1"),
     ])
-    def test_create(self, name: str, prod_price: Decimal,
-                    prod_description: str):
+    def test_create(self, name: str, prod_price: Decimal, prod_description: str):
         repo = self.service.serializer(self.serializer)
-        # Obtengo al azar una de ella
         product_dict = ProductsFactory.create(price=prod_price, description=prod_description, qty=0, name=name)
-        product_dict['category'] = self.categories[0].pk
         product_saved: Products = repo.insert(**product_dict, return_object=True)
         self.assertEqual(product_saved.price, Decimal(prod_price).quantize(Decimal('.01')))
         self.assertEqual(product_saved.name, name)
@@ -69,7 +65,6 @@ class ProductsTest(IntegrationTest):
         products = Products.objects.filter(is_active=True, is_deleted=False).last()
         product_dict = ProductsFactory.create(name=prod_name)
         product_dict['id'] = products.pk
-        product_dict['category'] = self.categories[0].pk
         repo.update_by(**product_dict)
         products.refresh_from_db()
         self.assertEqual(products.name, prod_name)

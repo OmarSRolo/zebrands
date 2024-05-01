@@ -33,5 +33,9 @@ class EmailService:
     @staticmethod
     def send_email(email_data: BasicEmail):
         msg_plain = render_to_string("email/" + email_data.template, email_data.context)
-        send_mail(email_data.subject, message="", from_email=email_data.from_email,
-                  recipient_list=email_data.to_email, html_message=msg_plain)
+        try:
+            send_mail(email_data.subject, message="", from_email=email_data.from_email,
+                      recipient_list=email_data.to_email, html_message=msg_plain)
+        except Exception as e:
+            print(e)
+            return

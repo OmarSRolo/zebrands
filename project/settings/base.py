@@ -189,7 +189,7 @@ EMAIL_HOST_USER: str = ''
 EMAIL_HOST_PASSWORD: str = config("EMAIL_PASSWORD")
 EMAIL_PORT: int = 587
 EMAIL_USE_TLS: bool = True
-DEFAULT_FROM_EMAIL: str = ''
+DEFAULT_FROM_EMAIL: str = 'chicomtz.sr@gmail.com'
 SERVER_EMAIL: str = ''
 
 ADMINS: list[tuple[str, str]] = [('Omar', 'chicomtz.sr@gmail.com'), ]

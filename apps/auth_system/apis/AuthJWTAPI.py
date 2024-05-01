@@ -5,7 +5,7 @@ from django.conf import settings
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
 from rest_framework.decorators import permission_classes, api_view
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, BasePermission, IsAuthenticated
 from rest_framework.response import Response
 
 from apps.auth_system.dto.AuthApiKeyDTO import LoginApiKeyResponseSerializer
@@ -17,7 +17,15 @@ from core.misc.utils import json_result
 
 
 class AuthJWTAPI(viewsets.ViewSet):
-    permission_classes: list[type[AllowAny]] = [AllowAny]
+    def get_permissions(self):
+        """
+        Instantiates and returns the list of permissions that this view requires.
+        """
+        if self.action == 'get_permission':
+            permission_classes: list[type[BasePermission]] = [IsAuthenticated]
+        else:
+            permission_classes: list[type[BasePermission]] = [AllowAny, ]
+        return [permission() for permission in permission_classes]
 
     @swagger_auto_schema(request_body=AuthTokenSerializer, responses={"200": ResponseShortDTO()})
     def register(self, request, **kwargs):
