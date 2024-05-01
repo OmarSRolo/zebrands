@@ -11,10 +11,10 @@ DATABASES: dict[str, Any] = {
 # FIXTURE
 FIXTURE_DIRS: list[str] = [
     os.path.join(BASE_DIR, 'fixtures/'),
-    os.path.join(BASE_DIR, 'apps/products/tests/fixtures/'),
-    os.path.join(BASE_DIR, 'apps/auth_system/tests/fixtures/'),
-    os.path.join(BASE_DIR, 'apps/users/tests/fixtures/'),
-    os.path.join(BASE_DIR, 'apps/categories/tests/fixtures/'),
+    os.path.join(BASE_DIR, 'apps/products/factories/fixtures/'),
+    os.path.join(BASE_DIR, 'apps/auth_system/factories/fixtures/'),
+    os.path.join(BASE_DIR, 'apps/users/factories/fixtures/'),
+    os.path.join(BASE_DIR, 'apps/categories/factories/fixtures/'),
 ]
 
 # CELERY
