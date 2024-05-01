@@ -3,8 +3,8 @@ from decimal import Decimal
 from django.db.models import QuerySet
 from parameterized import parameterized
 
-from apps.infrastructure.tests.factories import ProductsFactory
-from apps.infrastructure.tests.factories_model.categories import CategoriesFactoryModel
+from apps.infrastructure.factories.factories import ProductsFactory
+from apps.infrastructure.factories.factories_model import CategoriesFactoryModel
 from apps.products.dto.ProductsListDTO import ProductsDTO
 from apps.products.models import Products
 from apps.products.services.ProductsService import ProductsService

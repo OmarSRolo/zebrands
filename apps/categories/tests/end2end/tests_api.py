@@ -6,7 +6,7 @@ from parameterized import parameterized
 from apps.categories.dto.CategoriesDTO import CategoriesDTO
 from apps.categories.models.categories import Categories
 from apps.categories.services.CategoriesServices import CategoriesService
-from apps.infrastructure.tests.factories import CategoriesFactory
+from apps.infrastructure.factories.factories import CategoriesFactory
 from core.tests.IntegrationTest import IntegrationTest
 
 

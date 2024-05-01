@@ -6,7 +6,7 @@ from typing import Any
 from parameterized import parameterized
 
 from apps.categories.models import Categories
-from apps.infrastructure.tests.factories import ProductsFactory
+from apps.infrastructure.factories.factories import ProductsFactory
 from apps.products.models import Products
 from core.tests.End2EndTest import End2EndTest
 
