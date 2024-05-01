@@ -78,3 +78,10 @@ services:
       driver: "json-file"
       options:
         max-size: "100m"
+volumes:
+  mysql_data:
+  redis_data:
+  static_volume:
+    driver: local
+  media_volume:
+    driver: local
