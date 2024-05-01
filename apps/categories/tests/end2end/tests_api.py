@@ -35,6 +35,24 @@ class CategoriesAPITest(IntegrationTest):
         self.assertIsNotNone(category_saved.image)
         self.assertEqual(category['name'], category_saved.name)
 
+    def test_get(self):
+        caltegory = Categories.objects.filter(is_deleted=False, is_active=True).first().pk
+        response = self.client.get(self.url + str(caltegory) + "/", **self.super_token_headers,
+                                   content_type="application/json")
+        json_res = response.data
+        self.assertEqual(json_res["data"]["id"], caltegory)
+        self.assertEqual(json_res["complete"], True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_client_can_get(self):
+        category = Categories.objects.filter(is_deleted=False, is_active=True).first().pk
+        response = self.client.get(self.url + str(category) + "/", **self.client_token_headers,
+                                   content_type="application/json")
+        json_res = response.data
+        self.assertEqual(json_res["data"]["id"], category)
+        self.assertEqual(json_res["complete"], True)
+        self.assertEqual(response.status_code, 200)
+
     def test_client_cannt_insert(self):
         category = CategoriesFactory.build()
         category['image'] = self.create_image()
@@ -46,6 +64,17 @@ class CategoriesAPITest(IntegrationTest):
             json.dumps({"filters": {}, "limit": 20, "offset": 0, "order": "asc", "sort": ["pk"]}).encode(
                 'ascii')).decode('ascii')
         response = self.client.get(self.url + "?q=" + data, **self.super_token_headers,
+                                   content_type="application/json")
+        json_res = response.data
+        total = Categories.objects.filter(is_active=True, is_deleted=False, not_assigned=False).count()
+        self.assertEqual(json_res["data"]["total"], total)
+        self.assertEqual(response.status_code, 200)
+
+    def test_client_can_list(self):
+        data = base64.b64encode(
+            json.dumps({"filters": {}, "limit": 20, "offset": 0, "order": "asc", "sort": ["pk"]}).encode(
+                'ascii')).decode('ascii')
+        response = self.client.get(self.url + "?q=" + data, **self.client_token_headers,
                                    content_type="application/json")
         json_res = response.data
         total = Categories.objects.filter(is_active=True, is_deleted=False, not_assigned=False).count()
@@ -64,6 +93,15 @@ class CategoriesAPITest(IntegrationTest):
         category = json_res["data"]
         self.assertEqual(response.status_code, 200)
         self.assertEqual(category["name"], name)
+
+    @parameterized.expand([
+        ("juan",),
+    ])
+    def test_client_cannt_update(self, name: str):
+        category = Categories.objects.filter(is_active=True, is_deleted=False).last()
+        data = {"name": name}
+        response = self.client.put(self.url + f"{category.pk}/", data, **self.client_token_headers)
+        self.assertEqual(response.status_code, 403)
 
     def test_delete(self):
         category_saved = Categories.objects.filter(is_active=True, is_deleted=False, not_assigned=False).last()
@@ -85,7 +123,7 @@ class CategoriesAPITest(IntegrationTest):
         self.assertEqual(response.status_code, 200)
 
     def test_restore(self):
-        products = Categories.objects.filter(is_active=False)[0]
+        products = Categories.objects.filter(is_active=False).first()
         products.is_active = False
         products.save()
         self.service.restore_by(**{"id": products.pk})

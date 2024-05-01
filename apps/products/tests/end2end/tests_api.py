@@ -7,7 +7,7 @@ from parameterized import parameterized
 
 from apps.categories.models import Categories
 from apps.infrastructure.factories.factories import ProductsFactory
-from apps.products.models import Products
+from apps.products.models import Products, Track
 from core.tests.End2EndTest import End2EndTest
 
 
@@ -46,7 +46,19 @@ class ProductsAPITest(End2EndTest):
         if with_image:
             self.assertIsNotNone(product.image)
 
-    #
+    def test_client_cannt_create_product(self):
+        product_factory: dict[str, str] = ProductsFactory.build()
+        product_factory['category'] = self.category_normal.pk
+        response = self.client.post("/api/v1/products/", product_factory, **self.client_token_headers)
+        self.assertEqual(response.status_code, 403)
+
+    def test_client_cannt_update_product(self):
+        product = Products.objects.filter(is_deleted=False, is_active=True).first().pk
+        response = self.client.put(self.url + f"{product}/",
+                                   {"name": "Short A", "price": "7.00", "category": self.category_normal.pk},
+                                   **self.client_token_headers)
+        self.assertEqual(response.status_code, 403)
+
     def test_cant_create_product_without_category(self):
         product = ProductsFactory.create(category="", is_active='true')
         response = self.client.post("/api/v1/products/", product, **self.super_token_headers)
@@ -81,17 +93,49 @@ class ProductsAPITest(End2EndTest):
         self.assertEqual(json_res["complete"], True)
         self.assertEqual(response.status_code, 200)
 
+    def test_trace_product_when_get(self):
+        product = Products.objects.filter(is_deleted=False, is_active=True).first().pk
+        response = self.client.get(self.url + str(product) + "/", **self.super_token_headers,
+                                   content_type="application/json")
+        json_res = response.data
+        user_uuid_in_cookie: str = response.cookies.get("user_uuid").value
+        track: Track = Track.objects.get(product_id=product)
+        self.assertEqual(track.product_id, product)
+        self.assertEqual(str(track.user), user_uuid_in_cookie)
+        self.assertEqual(json_res["data"]["id"], product)
+        self.assertEqual(json_res["complete"], True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_client_can_get(self):
+        product = Products.objects.filter(is_deleted=False, is_active=True).first().pk
+        response = self.client.get(self.url + str(product) + "/", **self.client_token_headers,
+                                   content_type="application/json")
+        json_res = response.data
+        self.assertEqual(json_res["data"]["id"], product)
+        self.assertEqual(json_res["complete"], True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_client_can_list(self):
+        data: dict[str, Any] = {"filters": {}, "limit": 10, "offset": 0, "order": "asc", "sort": ["pk"]}
+        data_to_send: str = base64.b64encode(json.dumps(data).encode('ascii')).decode('ascii')
+        response = self.client.get(self.url + f"?q={data_to_send}", **self.client_token_headers,
+                                   content_type="application/json")
+        json_res = response.data
+        total = Products.objects.filter(category__is_active=True, is_active=True, is_deleted=False).count()
+        self.assertEqual(json_res["data"]["total"], total)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(json_res["data"]["results"]), total)
+
     def test_update(self):
         product = Products.objects.filter(is_deleted=False, is_active=True).first().pk
         response = self.client.put(self.url + f"{product}/",
-                                   {"name": "Concha", "price": "7.00", "category": self.category_normal.pk},
-
+                                   {"name": "Short A", "price": "7.00", "category": self.category_normal.pk},
                                    **self.super_token_headers)
         self.assertEqual(response.status_code, 200)
         json_res = response.data
         table = json_res["data"]
         self.assertEqual(table["id"], product)
-        self.assertEqual(table["name"], "Concha")
+        self.assertEqual(table["name"], "Short A")
         self.assertEqual(table["price"], "7.00")
 
     def test_list(self):
