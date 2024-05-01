@@ -1,0 +1,79 @@
+version: "3.5"
+
+services:
+
+  backend:
+    env_file: .envs/.dev/.django
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:3030
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "3031:3030"
+    depends_on:
+      - mysql
+      - redis
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+
+  celery:
+    env_file: .envs/.dev/.django
+    build:
+      context: ./
+      dockerfile: Dockerfile.celery
+    command: celery -A project worker -l debug --without-heartbeat
+    cap_add:
+      - SYS_ADMIN
+    depends_on:
+      - mysql
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+
+  flower:
+    image: mher/flower
+    environment:
+      - CELERY_BROKER_URL=redis://@redis
+      - FLOWER_PORT=5555
+    ports:
+      - "5555:5555"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+
+  mysql:
+    image: mysql:latest
+    env_file: .envs/.dev/.mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+volumes:
+  mysql_data:
+  redis_data:
+  static_volume:
+    driver: local
+  media_volume:
+    driver: local
