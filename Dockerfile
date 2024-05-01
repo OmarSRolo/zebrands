@@ -11,6 +11,4 @@ RUN pip install --no-cache-dir --upgrade -r dev.txt
 
 COPY . .
 
-EXPOSE 8000
-
 CMD ["python", "manage.py", "runserver", "--settings=project.settings.dev"]
