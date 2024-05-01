@@ -193,7 +193,7 @@ SERVER_EMAIL: str = ''
 
 ADMINS: list[tuple[str, str]] = [('Omar', 'chicomtz.sr@gmail.com'), ]
 
-ENVIRONMENT: str = config("ENVIRONMENT", default="LOCAL")
+ENVIRONMENT: str = config("ENVIRONMENT", default="DEV")
 
 # Static
 STATICFILES_DIRS: tuple[str] = (os.path.join(BASE_DIR, 'static/admin'),)
