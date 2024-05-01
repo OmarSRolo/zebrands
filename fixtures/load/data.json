@@ -1,0 +1,696 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add User",
+      "content_type": 6,
+      "codename": "add_users"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change User",
+      "content_type": 6,
+      "codename": "change_users"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete User",
+      "content_type": 6,
+      "codename": "delete_users"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view User",
+      "content_type": 6,
+      "codename": "view_users"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add Categoría",
+      "content_type": 7,
+      "codename": "add_categories"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change Categoría",
+      "content_type": 7,
+      "codename": "change_categories"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete Categoría",
+      "content_type": 7,
+      "codename": "delete_categories"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view Categoría",
+      "content_type": 7,
+      "codename": "view_categories"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add Producto",
+      "content_type": 8,
+      "codename": "add_products"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change Producto",
+      "content_type": 8,
+      "codename": "change_products"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete Producto",
+      "content_type": 8,
+      "codename": "delete_products"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view Producto",
+      "content_type": 8,
+      "codename": "view_products"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add Track Producto",
+      "content_type": 9,
+      "codename": "add_track"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change Track Producto",
+      "content_type": 9,
+      "codename": "change_track"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete Track Producto",
+      "content_type": 9,
+      "codename": "delete_track"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view Track Producto",
+      "content_type": 9,
+      "codename": "view_track"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "Clients",
+      "permissions": [
+        22,
+        24,
+        28,
+        32
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "Admin",
+      "permissions": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        21,
+        22,
+        23,
+        24,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 1,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$RVhvYnFvbEFVd1RVdlJCaFB4TnpTRA$9v/7DxjGfPr4K97OKjleTWV09wtTdLJ9gwX728qDr6w",
+      "last_login": "2024-04-30T17:39:38Z",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-04-30T04:11:27Z",
+      "username": "client_2",
+      "email": "chicomtz.sr@gmail.com",
+      "role": null,
+      "phone": "",
+      "address": "",
+      "city": "",
+      "town": "",
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "Omar",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 2,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$aGJVWmw3QUdTaWFKQmIxTTRadDUzSA$jvXt8rt7XKJ8zF4+4I41HYx5h9k/1oSUmiaIAkArmZo",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-30T04:21:54Z",
+      "username": "cliente",
+      "email": "omarsarmientorolo@yahoo.es",
+      "role": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "town": null,
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 3,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$aWRRclBjQkF4WGNadURObjFFbHVOWg$+5TRCTWIQFmNkbGtfJZ5HroxOp/851ohSzMp9RVLs7o",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-30T05:20:41.170Z",
+      "username": "client_2",
+      "email": "aaaa@gmail.com",
+      "role": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "town": null,
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_system.users",
+    "pk": 5,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$anRxNWZleHR0OElCMzJqU3lNOXVLQQ$ZU3kbfC62vXaGxRQNbn1ycrt2i5vzbwrR/MIP24cZag",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": false,
+      "date_joined": "2024-04-30T05:22:24.276Z",
+      "username": "client_3",
+      "email": "bbbb@gmail.com",
+      "role": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "town": null,
+      "deleted_at": null,
+      "is_deleted": false,
+      "last_name": null,
+      "first_name": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 1,
+    "fields": {
+      "updated_at": "2024-04-30T20:59:17.640Z",
+      "created_at": "2024-04-30T20:59:16.353Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sku": "255b0f24-ac67-4281-9ae3-2129b6627ad0",
+      "name": "Camisa Verde",
+      "category": 5,
+      "category_name": "camisas",
+      "brand": "blank",
+      "image": "",
+      "price": "0.00",
+      "qty": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 2,
+    "fields": {
+      "updated_at": "2024-05-01T02:01:34.083Z",
+      "created_at": "2024-04-30T20:59:32.138Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sku": "806d2a6c-1039-4bc6-b92c-c61ce764c1a1",
+      "name": "Short M",
+      "category": 5,
+      "category_name": "camisas",
+      "brand": "blank",
+      "image": "",
+      "price": "0.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 3,
+    "fields": {
+      "updated_at": "2024-04-30T20:59:58.552Z",
+      "created_at": "2024-04-30T20:59:58.552Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sku": "6eb20b21-e449-4d36-a463-22093c4cf807",
+      "name": "Pantalon Gris",
+      "category": 2,
+      "category_name": "Pantalones",
+      "brand": "drey",
+      "image": "",
+      "price": "0.10",
+      "qty": 3,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 4,
+    "fields": {
+      "updated_at": "2024-04-30T21:00:30.446Z",
+      "created_at": "2024-04-30T21:00:30.446Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sku": "2426b1b4-5456-4011-badd-c3b2434f0536",
+      "name": "Short Amarrillo",
+      "category": 3,
+      "category_name": "Shorts",
+      "brand": "Sawer",
+      "image": "",
+      "price": "4.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 5,
+    "fields": {
+      "updated_at": "2024-04-30T21:00:49.753Z",
+      "created_at": "2024-04-30T21:00:49.753Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "sku": "c01d1c2b-91ef-4f82-807f-7106c649dda1",
+      "name": "Converses",
+      "category": 4,
+      "category_name": "Tenis",
+      "brand": "kilou",
+      "image": "",
+      "price": "19.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 6,
+    "fields": {
+      "updated_at": "2024-04-30T21:01:15.089Z",
+      "created_at": "2024-04-30T21:01:15.089Z",
+      "deleted_at": null,
+      "is_active": false,
+      "is_deleted": false,
+      "sku": "3916d137-028f-46d1-992c-77d81c5f6397",
+      "name": "Didas",
+      "category": 4,
+      "category_name": "Tenis",
+      "brand": "Didas",
+      "image": "",
+      "price": "12.00",
+      "qty": null,
+      "description": null
+    }
+  },
+  {
+    "model": "products.track",
+    "pk": 4,
+    "fields": {
+      "updated_at": "2024-04-30T23:37:04.344Z",
+      "created_at": "2024-04-30T23:36:48.436Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "product": 1,
+      "user": "45d0b2f3-db2c-4774-9de4-1ab2a11ed154",
+      "total_views": 4,
+      "metadata": {}
+    }
+  },
+  {
+    "model": "products.track",
+    "pk": 5,
+    "fields": {
+      "updated_at": "2024-04-30T23:37:37.082Z",
+      "created_at": "2024-04-30T23:37:15.225Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "product": 2,
+      "user": "45d0b2f3-db2c-4774-9de4-1ab2a11ed154",
+      "total_views": 5,
+      "metadata": {}
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 1,
+    "fields": {
+      "updated_at": "2024-04-30T17:40:09.911Z",
+      "created_at": "2024-04-30T17:40:09.911Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "name": "No Assigned",
+      "image": "",
+      "not_assigned": true
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 2,
+    "fields": {
+      "updated_at": "2024-04-30T17:58:28.883Z",
+      "created_at": "2024-04-30T17:58:15.197Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "name": "Pantalones",
+      "image": "categories/1539952202.jpg",
+      "not_assigned": false
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 3,
+    "fields": {
+      "updated_at": "2024-04-30T17:58:47.295Z",
+      "created_at": "2024-04-30T17:58:47.295Z",
+      "deleted_at": null,
+      "is_active": true,
+      "is_deleted": false,
+      "name": "Shorts",
+      "image": "categories/1462721362.jpg",
+      "not_assigned": false
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 4,
+    "fields": {
+      "updated_at": "2024-04-30T17:58:59.033Z",
+      "created_at": "2024-04-30T17:58:59.033Z",
+      "deleted_at": null,
+      "is_active": false,
+      "is_deleted": false,
+      "name": "Tenis",
+      "image": "categories/2180511525.jpg",
+      "not_assigned": false
+    }
+  },
+  {
+    "model": "categories.categories",
+    "pk": 5,
+    "fields": {
+      "updated_at": "2024-04-30T18:20:42.972Z",
+      "created_at": "2024-04-30T18:20:42.972Z",
+      "deleted_at": null,
+      "is_active": false,
+      "is_deleted": false,
+      "name": "Camisas",
+      "image": "categories/2722081917.jpg",
+      "not_assigned": false
+    }
+  }
+]

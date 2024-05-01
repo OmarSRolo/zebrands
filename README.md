@@ -2,7 +2,7 @@
 
 Zebrands
 
-## Instalación del sistema para desarrollo en ambiente de desarrollo ##
+## Instalación del sistema para desarrollo en ambiente local ##
 
 ### 1- Instalar dependencias de desarrollo y de testing:
 
@@ -10,11 +10,11 @@ Zebrands
 pip install -r ./requirements/local.txt && pip install -r ./requirements/test.txt
 ```
 
-### 2- Crear bases de datos:
+### 2- Crear base de datos:
 
 * Crear base de datos zibrands
 
-### 3- Correr migraciones para ambas bases de datos:
+### 3- Correr migraciones:
 
 ```bash
 
