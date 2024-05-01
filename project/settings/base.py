@@ -182,7 +182,6 @@ CORS_ALLOW_CREDENTIALS: bool = True
 CORS_ALLOW_HEADERS: list[str] = ["Authorization", "Content-Type", "X-CSRFToken", ]
 
 # Email
-
 EMAIL_BACKEND: str = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST: str = ''
 EMAIL_HOST_USER: str = ''

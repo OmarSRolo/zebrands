@@ -10,5 +10,5 @@ from apps.products.models import Products
 def product_changed(sender, instance: Products, created, **kwargs):
     if not created:
         all_admin_user: list[str] = Users.objects.filter(groups__name="Admin", is_active=True,
-                                                         is_deleted=True).values_list("email")
+                                                         is_deleted=False).values_list("email")
         NotificationService.send_notification(all_admin_user, instance)

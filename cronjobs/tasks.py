@@ -10,4 +10,5 @@ def send_email(self, email_data: dict):
     try:
         EmailService.send_email(email_data_struct)
     except Exception as e:
+        print(e)
         return False
