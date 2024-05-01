@@ -1,7 +1,7 @@
 from decouple import config
 
 celery_broker_url: str = config('BROKER_URL', default='redis://@127.0.0.1:6379')
-celery_result_backend: str = 'django-db'
+# celery_result_backend: str = 'django-db'
 celery_accept_content: list[str] = ['json']
 celery_task_serializer: str = 'json'
 celery_result_serializer: str = 'json'

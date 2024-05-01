@@ -13,4 +13,4 @@ class NotificationService:
                                          "template": "products.html", "message": "Product Updated",
                                          "context": {"product": product.pk, "name": product.name,
                                                      "price": product.price, "sku": str(product.sku), }}
-            send_email(send_data)
+            send_email.delay(send_data)
